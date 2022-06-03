@@ -14,7 +14,7 @@
         <!-- Customize your theme here. -->
     </style>
     <style name="SplashTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="android:windowBackground">@drawable/gym</item>
+        <item name="android:windowBackground">@drawable/fitlona</item>
         <item name="android:windowFullscreen">true</item>
         </style>
 </resources>

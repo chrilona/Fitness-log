@@ -1,8 +1,10 @@
 package com.lonazawadi.fitness_log
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
@@ -13,6 +15,7 @@ class loginActivity : AppCompatActivity() {
     lateinit var etEmail:TextInputEditText
     lateinit var tilPassword:TextInputLayout
     lateinit var etpassword:TextInputEditText
+    lateinit var tvsignup:TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,12 +25,20 @@ class loginActivity : AppCompatActivity() {
 
         btnlogin=findViewById(R.id.btnLogin)
         tilEmail=findViewById(R.id.tilEmail)
-        etEmail=findViewById(R.id.etEmail)
+        etEmail=findViewById(R.id.etEmailSign)
         tilPassword=findViewById(R.id.tilPassword)
         btnlogin=findViewById(R.id.btnLogin)
+        tvsignup = findViewById(R.id.tvsignup)
+        tvsignup =findViewById(R.id.tvsignup)
 
         btnlogin.setOnClickListener { validateLogin() }
+        tvsignup.setOnClickListener {
+            val intent = Intent(this,signUpActivity::class.java)
+            startActivity(intent)
+        }
     }
+
+
     fun validateLogin(){
         var error=false
         tilEmail.error=null
