@@ -3,6 +3,7 @@ package com.lonazawadi.fitness_log
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Patterns
 import android.widget.Button
 import android.widget.TextView
 import com.google.android.material.textfield.TextInputEditText
@@ -71,6 +72,11 @@ class signUpActivity : AppCompatActivity() {
             tilEmail.error="Email is required"
             error=true
         }
+        //validating input in the email field matches the pattern Regular exprsions
+        if (Patterns.EMAIL_ADDRESS.matcher(emailS).matches()){
+            tilEmail.error = "Invalid"
+            error=true
+        }
         var passwordS=etSignPassword.text.toString()
         if (passwordS.isBlank()){
             tilPasswordSignup.error="Password is required"
@@ -81,6 +87,7 @@ class signUpActivity : AppCompatActivity() {
             tilConfirmSignup.error="Password is required"
             error =true
         }
+        //comparing if passwords passed in both edit texts match.
         if (passwordS!=confirmS){
             tilConfirmSignup.error="Passwords do not match"
 
