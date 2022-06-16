@@ -9,16 +9,16 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilFirstname"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        >
+        app:startIconDrawable="@drawable/ic_baseline_person_add_24">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etFirstname"
@@ -32,16 +32,16 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilEmailSignUp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilSecondName"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        >
+        app:startIconDrawable="@drawable/ic_baseline_alternate_email_24">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etEmailSign"
@@ -53,17 +53,17 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilPasswordSignup"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilEmailSignUp"
         app:passwordToggleEnabled="true"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        >
+        app:startIconDrawable="@drawable/ic_baseline_lock_24">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etSignPassword"
@@ -75,17 +75,17 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilConfirmSignup"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilPasswordSignup"
         app:passwordToggleEnabled="true"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        >
+        app:startIconDrawable="@drawable/ic_baseline_lock_24">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etConfirm"
@@ -129,16 +129,16 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilSecondName"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilFirstname"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        >
+        app:startIconDrawable="@drawable/ic_baseline_person_add_24">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etSecondName"
@@ -147,58 +147,6 @@
             android:hint="Second name"
             android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tilFirstname"
-        app:layout_constraintEnd_toStartOf="@+id/tilFirstname"
-        app:layout_constraintHorizontal_bias="0.603"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tilFirstname"
-        app:srcCompat="@drawable/ic_baseline_person_add_24" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tilSecondName"
-        app:layout_constraintEnd_toStartOf="@+id/tilSecondName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tilSecondName"
-        app:srcCompat="@drawable/ic_baseline_person_add_24" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tilEmailSignUp"
-        app:layout_constraintEnd_toStartOf="@+id/tilEmailSignUp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tilEmailSignUp"
-        app:srcCompat="@drawable/ic_baseline_alternate_email_24" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="32dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tilPasswordSignup"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tilPasswordSignup"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/ic_baseline_lock_24" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tilConfirmSignup"
-        app:layout_constraintEnd_toStartOf="@+id/tilConfirmSignup"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tilConfirmSignup"
-        app:srcCompat="@drawable/ic_baseline_lock_24" />
 
     <ImageView
         android:id="@+id/imageView6"
