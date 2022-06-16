@@ -49,7 +49,9 @@ class signUpActivity : AppCompatActivity() {
     }
 
     fun validateSignup(){
+
         var error=false
+
         tilFirstname.error=null
         tilSecondName.error=null
         tilEmailSignup.error=null
@@ -72,7 +74,7 @@ class signUpActivity : AppCompatActivity() {
             tilEmail.error="Email is required"
             error=true
         }
-        //validating input in the email field matches the pattern Regular exprsions
+        //validating input in the email field matches the pattern Regular expressions
         if (Patterns.EMAIL_ADDRESS.matcher(emailS).matches()){
             tilEmail.error = "Invalid"
             error=true

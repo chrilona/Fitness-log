@@ -9,10 +9,11 @@
         android:id="@+id/Track"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_auto_graph_24"
-        android:title="@string/profile"/>
+        android:title="Track"/>
     <item
         android:id="@+id/Profile"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_reorder_24"
-        android:title="@string/track"/>
+        android:title="Profile
+"/>
 </menu>
