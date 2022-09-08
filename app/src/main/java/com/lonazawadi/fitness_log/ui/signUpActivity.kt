@@ -1,15 +1,19 @@
-package com.lonazawadi.fitness_log
+package com.lonazawadi.fitness_log.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
-import android.widget.Button
-import android.widget.TextView
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
-import com.lonazawadi.fitness_log.databinding.ActivityLoginBinding
+import android.widget.Toast
+import com.lonazawadi.fitness_log.R
+import com.lonazawadi.fitness_log.api.ApiClient
+import com.lonazawadi.fitness_log.api.ApiInterface
 import com.lonazawadi.fitness_log.databinding.ActivitySignUpBinding
+import com.lonazawadi.fitness_log.models.RegisterRequest
+import com.lonazawadi.fitness_log.models.RegisterResponse
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class signUpActivity : AppCompatActivity() {
     lateinit var binding: ActivitySignUpBinding
@@ -23,7 +27,7 @@ class signUpActivity : AppCompatActivity() {
     fun castView(){
         binding.btnSignUp.setOnClickListener { validateSignup() }
         binding.tvSignUp.setOnClickListener {
-            val intent = Intent(this,loginActivity::class.java)
+            val intent = Intent(this, loginActivity::class.java)
             startActivity(intent)
         }
     }
@@ -34,6 +38,7 @@ class signUpActivity : AppCompatActivity() {
         binding.tilEmailSignUp.error=null
         binding.tilPasswordSignup.error=null
         binding.tilConfirmSignup.error=null
+        binding.tilPhoneNumber.error=null
         var firstNameS=binding.etFirstname.text.toString()
         if (firstNameS.isBlank()){
             binding.tilFirstname.error="Password is required"
@@ -47,6 +52,11 @@ class signUpActivity : AppCompatActivity() {
         var emailS=binding.etEmailSign.text.toString()
         if (emailS.isBlank()){
             binding.tilEmailSignUp.error="Email is required"
+            error=true
+        }
+        var phonenumb=binding.etPhoneNumber.text.toString()
+        if (phonenumb.isBlank()){
+            binding.tilPhoneNumber.error="Phone number required"
             error=true
         }
         //validating input in the email field matches the pattern Regular expressions
@@ -70,6 +80,32 @@ class signUpActivity : AppCompatActivity() {
 
         }
         if (!error){
+            val registerRequest= RegisterRequest(firstNameS,secondNameS,emailS,passwordS,phonenumb)
+            makeRegisterRequest(registerRequest)
+            startActivity(Intent(this,loginActivity::class.java))
         }
     }
-}
+
+    fun makeRegisterRequest(registerRequest: RegisterRequest){
+        val apiClient=ApiClient.buildApiClient(ApiInterface::class.java)
+        val request= apiClient.registerUser(registerRequest)
+        request.enqueue(object :Callback<RegisterResponse>{
+            override fun onResponse(
+                call: Call<RegisterResponse>,
+                response: Response<RegisterResponse>
+            ) {
+                if (response.isSuccessful){
+                    Toast.makeText(baseContext,response.body()?.message,Toast.LENGTH_LONG).show()
+                }
+                else{
+                    val error = response.errorBody()?.string()
+                    Toast.makeText(baseContext,error,Toast.LENGTH_LONG).show()
+                }
+            }
+
+            override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
+                Toast.makeText(baseContext,t.message,Toast.LENGTH_LONG).show()
+            }
+
+        })
+}}

@@ -1,7 +1,8 @@
-package com.lonazawadi.fitness_log
+package com.lonazawadi.fitness_log.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.lonazawadi.fitness_log.R
 
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

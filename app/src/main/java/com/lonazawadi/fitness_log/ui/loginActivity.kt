@@ -1,12 +1,9 @@
-package com.lonazawadi.fitness_log
+package com.lonazawadi.fitness_log.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
+import com.lonazawadi.fitness_log.R
 import com.lonazawadi.fitness_log.databinding.ActivityLoginBinding
 
 class loginActivity : AppCompatActivity() {
@@ -20,10 +17,10 @@ class loginActivity : AppCompatActivity() {
      }
     fun castViews(){
         binding.btnLogin.setOnClickListener { validateLogin()
-        startActivity(Intent(this,HomeActivity::class.java))
+        startActivity(Intent(this, HomeActivity::class.java))
         }
         binding.tvsignup.setOnClickListener {
-            val intent = Intent(this,signUpActivity::class.java)
+            val intent = Intent(this, signUpActivity::class.java)
             startActivity(intent)
         }
       }
@@ -43,7 +40,7 @@ class loginActivity : AppCompatActivity() {
             error =true
         }
         if (!error){
-          startActivity(Intent(this,HomeActivity::class.java))
+          startActivity(Intent(this, HomeActivity::class.java))
         }
     }
 }

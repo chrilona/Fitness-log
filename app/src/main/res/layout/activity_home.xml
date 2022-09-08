@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity"
+    tools:context=".ui.HomeActivity"
     android:background="@drawable/splash_bg"
     >
 
@@ -19,7 +19,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fgcPlan"
-        android:name="com.lonazawadi.fitness_log.PlanFragment"
+        android:name="com.lonazawadi.fitness_log.ui.PlanFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
