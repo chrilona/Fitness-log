@@ -25,11 +25,22 @@ class signUpActivity : AppCompatActivity() {
         castView()
     }
     fun castView(){
-        binding.btnSignUp.setOnClickListener { validateSignup() }
-        binding.tvSignUp.setOnClickListener {
-            val intent = Intent(this, loginActivity::class.java)
+        binding.btnSignUp.setOnClickListener {
+            validateSignup()
+
+        }
+
+
+        binding.btnSignUp.setOnClickListener {
+            val intent = Intent(this,loginActivity::class.java)
             startActivity(intent)
         }
+
+        binding.tvSignUp.setOnClickListener {
+            val intent = Intent(this,loginActivity::class.java)
+            startActivity(intent)
+        }
+
     }
     fun validateSignup(){
         var error=false
@@ -74,6 +85,10 @@ class signUpActivity : AppCompatActivity() {
             binding.tilConfirmSignup.error="Password is required"
             error =true
         }
+        if (!Patterns.EMAIL_ADDRESS.matcher(emailS).matches()){
+            binding.tilEmailSignUp.error="Not a valid email address"
+            error=true
+        }
         //comparing if passwords passed in both edit texts match.
         if (passwordS!=confirmS){
             binding.tilConfirmSignup.error="Passwords do not match"
@@ -82,7 +97,7 @@ class signUpActivity : AppCompatActivity() {
         if (!error){
             val registerRequest= RegisterRequest(firstNameS,secondNameS,emailS,passwordS,phonenumb)
             makeRegisterRequest(registerRequest)
-            startActivity(Intent(this,loginActivity::class.java))
+//           startActivity(Intent(this,loginActivity::class.java))
         }
     }
 
